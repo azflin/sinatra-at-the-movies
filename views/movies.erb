@@ -1,0 +1,26 @@
+<h1> Movie Reviews </h1>
+
+<% @movies.each do |movie| %>
+	<div>
+		<b><%= movie.id %>:</b> <%= movie.title %>
+		</br>
+		<%= movie.director %>
+		</br> 
+		Rating: <%= movie.rating %> 
+		</br>
+		<a href="/movies/<%= movie.id %>/edit"> Edit This Movie</a>
+		</br>
+	</div>
+	<div>
+		<form action="/movies/<%= movie.id%>" method="post">
+			<input type="hidden" name="_method" value="delete"/>
+			<input type="submit" value="Delete Movie"/>
+		<form>
+	</div>
+	<br/>
+<% end %>
+
+<div>
+	<a href="/movies/new"> Add New Movie Review </a> 
+</div>
+
